@@ -1,112 +1,88 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { FaChevronDown, FaExternalLinkAlt, FaGlobe, FaSearch, FaShoppingCart, FaTools } from "react-icons/fa";
 
-
-const projectList = [
-  {
-    title: "Portfolio Website",
-    description: "A personal portfolio built using React, showcasing skills, services, and contact info.",
-    image: require("../assets/seo.png"), 
-    link: "https://ahsanur.netlify.app/",
-  },
-  {
-    title: "Blog App",
-    description: "A full-stack blog platform with React, Node.js, and MongoDB, including categories and likes.",
-    image: require("../assets/blog.jpg"),
-    link: "https://www.wix.com/app-market/web-solution/blog",
-  },
-  {
-    title: "E-commerce Site",
-    description: "A modern e-commerce website with product listing, cart, and payment gateway integration.",
-    image: require("../assets/servis.avif"),
-    link: "https://zapier.com/blog/best-ecommerce-shopping-cart-software/",
-  },
+const featuredProjects = [
+  { domain: "silverfalcon.in", type: "Corporate Website", icon: <FaGlobe /> },
+  { domain: "themosquitosolution.com", type: "Service Website", icon: <FaTools /> },
+  { domain: "solaimanhumamhair.com", type: "Product Website", icon: <FaShoppingCart /> },
+  { domain: "feesbook.co.in", type: "Business Platform", icon: <FaTools /> },
 ];
 
+const moreProjects = [
+  { domain: "beldangasamachar.com", type: "News Website", icon: <FaGlobe /> },
+  { domain: "dgps.co.in", type: "School Website", icon: <FaGlobe /> },
+  { domain: "docfiling.in", type: "Service Website", icon: <FaTools /> },
+  { domain: "goumatatazf.com", type: "Business Website", icon: <FaGlobe /> },
+  { domain: "mdrajabiri.com", type: "Portfolio Website", icon: <FaGlobe /> },
+  { domain: "novaplastpipe.com", type: "Manufacturing Website", icon: <FaTools /> },
+  { domain: "raingo.in", type: "Brand Website", icon: <FaGlobe /> },
+  { domain: "righten.in", type: "Company Website", icon: <FaSearch /> },
+  { domain: "tsfabricationandengineer.com", type: "Engineering Website", icon: <FaTools /> },
+];
+
+const ProjectCard = ({ project, index }) => (
+  <motion.a
+    className="project-card domain-card glass-card"
+    href={`https://${project.domain}`}
+    target="_blank"
+    rel="noreferrer"
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.42, delay: index * 0.035 }}
+    whileHover={{ y: -7, scale: 1.01 }}
+  >
+    <div className="domain-icon">{project.icon}</div>
+    <span className="project-type">{project.type}</span>
+    <h3 className="card-title">{project.domain}</h3>
+    <p className="card-text">Responsive website, professional layout, launch-ready online presence.</p>
+    <span className="visit-link">
+      Visit Website <FaExternalLinkAlt />
+    </span>
+  </motion.a>
+);
+
 const Projects = () => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
-    <section
-      id="projects"
-      style={{
-        padding: "3rem 2rem",
-        background: "linear-gradient(to right, #1f1c2c, #928dab)",
-        color: "#fff",
-        minHeight: "100vh",
-      }}
-    >
-      <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        style={{ textAlign: "center", fontSize: "2.5rem", marginBottom: "2.5rem" }}
-      >
-        🚀 My Projects
-      </motion.h2>
+    <section id="projects" className="section projects-section">
+      <div className="section-inner">
+        <p className="section-kicker">Live Projects</p>
+        <h2 className="section-title">Websites I have worked on.</h2>
+        <p className="section-lead">
+          Featured client websites first. Click Show More to open the full
+          portfolio list.
+        </p>
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2rem",
-        }}
-      >
-        {projectList.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            viewport={{ once: true }}
-            style={{
-              background: "rgba(255, 255, 255, 0.08)",
-              borderRadius: "15px",
-              padding: "1.5rem",
-              maxWidth: "320px",
-              width: "100%",
-              color: "#fff",
-              backdropFilter: "blur(8px)",
-              border: "1px solid rgba(255, 255, 255, 0.15)",
-              boxShadow: "0 8px 20px rgba(0, 0, 0, 0.3)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              style={{
-                width: "100%",
-                height: "180px",
-                objectFit: "cover",
-                borderRadius: "10px",
-                marginBottom: "1rem",
-              }}
-            />
+        <div className="grid project-grid live-project-grid featured-project-grid">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard project={project} index={index} key={project.domain} />
+          ))}
+        </div>
 
-            <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{project.title}</h3>
-            <p style={{ fontSize: "1rem", lineHeight: "1.5", marginBottom: "1.5rem" }}>
-              {project.description}
-            </p>
+        <div className="show-more-row">
+          <button className="btn btn-ghost show-more-btn" type="button" onClick={() => setShowMore((value) => !value)}>
+            {showMore ? "Show Less" : "Show More"} <FaChevronDown className={showMore ? "rotated" : ""} />
+          </button>
+        </div>
 
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: "0.6rem 1rem",
-                background: "#6c63ff",
-                color: "#fff",
-                textDecoration: "none",
-                borderRadius: "8px",
-                textAlign: "center",
-              }}
+        <AnimatePresence>
+          {showMore && (
+            <motion.div
+              className="grid project-grid live-project-grid more-project-grid"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.35 }}
             >
-              Visit Website
-            </a>
-          </motion.div>
-        ))}
+              {moreProjects.map((project, index) => (
+                <ProjectCard project={project} index={index} key={project.domain} />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

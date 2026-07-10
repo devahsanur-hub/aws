@@ -1,97 +1,64 @@
 import React from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import dashboardImg from "../assets/dash.jpg"; 
+import { motion } from "framer-motion";
+import dashboardImg from "../assets/dash.jpg";
 
 const skills = [
-  { name: "React.js", level: 85, color: "#00bfff" },
-  { name: "CI 3", level: 75, color: "#9428a7ff" },
-  { name: "JavaScript", level: 75, color: "#007bff" },
-  { name: "HTML & CSS", level: 90, color: "#ff6600" },
-  { name: "PHP", level: 75, color: "#d2b731ff" },
-  { name: "WordPress", level: 85, color: "#28a745" },
-  { name: "Seo Optimisation", level: 90, color: "#c8545dff" },
+  { name: "React.js", level: 90 },
+  { name: "JavaScript", level: 86 },
+  { name: "HTML/CSS", level: 94 },
+  { name: "PHP & CodeIgniter", level: 78 },
+  { name: "WordPress", level: 88 },
+  { name: "SEO Optimization", level: 84 },
 ];
 
 const Skills = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true });
-
-  React.useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
   return (
-    <section
-      id="skills"
-      style={{
-        padding: "2rem 2rem",
-        minHeight: "70vh",
-        background: "linear-gradient(to right, #1f1c2c, #928dab)",
-        color: "#fff",
-        display: "flex",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: "2rem",
-      }}
-    >
-      
-      <div ref={ref} style={{ flex: 1, minWidth: "300px" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>🛠️ My Skills</h2>
+    <section id="skills" className="section">
+      <div className="section-inner skills-layout">
+        <div>
+          <p className="section-kicker">Skills</p>
+          <h2 className="section-title">Clean code with sharp visual taste.</h2>
+          <p className="section-lead">
+            I combine frontend development, WordPress, SEO and UI thinking to
+            create websites that feel professional and work smoothly.
+          </p>
 
-        {skills.map((skill, index) => (
-          <div key={index} style={{ marginBottom: "2rem" }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: "0.5rem",
-                fontWeight: "bold",
-              }}
-            >
-              <span>{skill.name}</span>
-              <span>{skill.level}%</span>
-            </div>
-            <div
-              style={{
-                height: "10px",
-                width: "100%",
-                backgroundColor: "#ffffff33",
-                borderRadius: "5px",
-              }}
-            >
-              <motion.div
-                initial={{ width: 0 }}
-                animate={controls}
-                variants={{
-                  visible: { width: `${skill.level}%` },
-                }}
-                transition={{ duration: 1.5, delay: index * 0.3 }}
-                style={{
-                  height: "100%",
-                  backgroundColor: skill.color,
-                  borderRadius: "5px",
-                }}
-              />
-            </div>
+          <div className="grid feature-grid">
+            {["Fast loading", "Responsive UI", "Conversion CTA"].map((item) => (
+              <div className="feature-card glass-card" key={item}>
+                <h3 className="card-title">{item}</h3>
+                <p className="card-text">Built for real users on mobile and desktop.</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
 
-
-      <div style={{ flex: 1, minWidth: "300px", textAlign: "center" }}>
-        <img
-          src={dashboardImg}
-          alt="Dashboard"
-          style={{
-            marginTop: "80px",
-            maxWidth: "100%",
-            borderRadius: "15px",
-            boxShadow: "0 8px 25px rgba(0,0,0,0.3)",
-          }}
-        />
+        <motion.div
+          className="glass-card feature-card"
+          initial={{ opacity: 0, x: 36 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+        >
+          <img src={dashboardImg} alt="Dashboard preview" style={{ width: "100%", borderRadius: 8, marginBottom: 24 }} />
+          {skills.map((skill, index) => (
+            <div className="skill-row" key={skill.name}>
+              <div className="skill-meta">
+                <span>{skill.name}</span>
+                <span>{skill.level}%</span>
+              </div>
+              <div className="skill-track">
+                <motion.div
+                  className="skill-fill"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: index * 0.08 }}
+                />
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

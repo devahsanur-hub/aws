@@ -1,199 +1,162 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import profile1 from "../assets/home.jpg";
-import profile2 from "../assets/home2.png";
-import profile3 from "../assets/profile1.jpg";
-import profile4 from "../assets/home4.jpg";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaArrowRight,
+  FaCode,
+  FaLaptopCode,
+  FaMobileAlt,
+  FaPlay,
+  FaRocket,
+  FaSearch,
+  FaWhatsapp,
+} from "react-icons/fa";
 
-const images = [profile1, profile2, profile3, profile4];
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.3,
-    },
+const videoTabs = [
+  {
+    key: "website",
+    label: "Website",
+    icon: <FaLaptopCode />,
+    title: "Premium website design",
+    text: "Portfolio, company, service, ecommerce and landing pages with clean professional UI.",
   },
-};
-
-const textVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const buttonHover = {
-  scale: 1.05,
-  backgroundColor: "#e0a800",
-  boxShadow: "0 8px 20px rgb(112, 101, 109)",
-  transition: { duration: 0.3, ease: "easeInOut" },
-};
+  {
+    key: "mobile",
+    label: "Mobile",
+    icon: <FaMobileAlt />,
+    title: "Mobile responsive build",
+    text: "Every section is planned for phone, tablet and desktop so clients can browse smoothly.",
+  },
+  {
+    key: "seo",
+    label: "SEO",
+    icon: <FaSearch />,
+    title: "SEO ready launch",
+    text: "Fast loading, structured content, meta basics and business-focused call-to-action flow.",
+  },
+];
 
 const Home = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const [activeTab, setActiveTab] = useState(videoTabs[0]);
 
   return (
-    <section
-      id="home"
-      style={{
-        padding: "2rem 1rem",
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "linear-gradient(135deg, #1f1c2c, #928dab)",
-        color: "#fff",
-        overflowX: "hidden",
-        width: "100vw",
-        boxSizing: "border-box",
-      }}
-    >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="home-container"
-        style={{
-          maxWidth: "1200px",
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "2rem",
-          flexWrap: "wrap",
-          boxSizing: "border-box",
-        }}
-      >
+    <section id="home" className="section hero video-hero">
+      <div className="section-inner hero-video-layout">
         <motion.div
-          style={{
-            flex: 1,
-            minWidth: "280px",
-            textAlign: "center",
-            boxSizing: "border-box",
-          }}
+          className="hero-copy-panel"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-          <motion.h1
-            variants={textVariant}
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: "700",
-              marginBottom: "1rem",
-              position: "relative",
-              display: "inline-block",
-              paddingBottom: "0.3rem",
-            }}
-          >
-            Hi, I'm <span style={{ color: "#FFB400" }}>Ahsanur</span>
-            <span
-              style={{
-                position: "absolute",
-                left: 0,
-                bottom: 0,
-                height: "4px",
-                width: "50%",
-                backgroundColor: "#FFB400",
-                borderRadius: "2px",
-              }}
-            ></span>
-          </motion.h1>
+          <p className="section-kicker">Ahsanur Web Solution</p>
+          <h1>
+            Watch how your <span>website</span> will work.
+          </h1>
+          <p className="section-lead">
+            Tap the video topics to see what I build: premium business websites,
+            mobile responsive pages, SEO basics, pricing and launch-ready web solutions.
+          </p>
 
-          <motion.p
-            variants={textVariant}
-            style={{
-              fontSize: "1.1rem",
-              lineHeight: "1.7",
-              margin: "0 auto",
-              maxWidth: "700px",
-            }}
-          >
-            A full-stack developer with a love for creating beautiful, fast, and
-            modern web apps using <strong>React</strong>, <strong>Node.js</strong>, and <strong>MongoDB</strong>. Let's build
-            something great together!
-          </motion.p>
+          <div className="hero-actions">
+            <a className="btn btn-primary" href="#pricing">
+              See Pricing <FaArrowRight />
+            </a>
+            <a className="btn btn-ghost" href="https://wa.me/917866030833" target="_blank" rel="noreferrer">
+              <FaWhatsapp /> WhatsApp
+            </a>
+          </div>
 
-          <motion.a
-            href="#projects"
-            style={{
-              marginTop: "1.5rem",
-              display: "inline-block",
-              padding: "0.8rem 2rem",
-              backgroundColor: "#FFB400",
-              color: "#1f1c2c",
-              borderRadius: "30px",
-              textDecoration: "none",
-              fontWeight: "bold",
-              boxShadow: "0 5px 15px rgba(255, 180, 0, 0.4)",
-            }}
-            whileHover={buttonHover}
-            whileTap={{ scale: 0.95 }}
-            variants={textVariant}
-          >
-            View Projects
-          </motion.a>
+          <div className="hero-stats">
+            <div className="stat">
+              <strong>7.5K+</strong>
+              <span>basic website start</span>
+            </div>
+            <div className="stat">
+              <strong>13+</strong>
+              <span>client websites</span>
+            </div>
+            <div className="stat">
+              <strong>SEO</strong>
+              <span>launch ready setup</span>
+            </div>
+          </div>
         </motion.div>
 
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          style={{
-            flex: 1,
-            minWidth: "280px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            boxSizing: "border-box",
-          }}
-        >
-          <img
-            src={images[currentImage]}
-            alt="Profile"
-            style={{
-              width: "100%",
-              maxWidth: "350px",
-              height: "auto",
-              borderRadius: "20px",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-              animation: "float 3s ease-in-out infinite",
-            }}
-          />
+        <motion.div className="website-video glass-card" initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }}>
+          <div className="video-stage">
+            <div className="video-bg-grid" />
+            <motion.div className="video-orbit" animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 24, ease: "linear" }} />
+            <motion.div className="video-browser" animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 5.8, ease: "easeInOut" }}>
+              <div className="browser-top"><span /><span /><span /></div>
+              <div className="browser-hero-line" />
+              <div className="browser-row">
+                <div />
+                <div />
+                <div />
+                <div />
+              </div>
+              <div className="browser-content">
+                <div className="browser-copy">
+                  <span />
+                  <strong />
+                  <p />
+                  <p />
+                </div>
+                <motion.div className="browser-preview" animate={{ scale: [1, 1.06, 1] }} transition={{ repeat: Infinity, duration: 3.2 }} />
+              </div>
+            </motion.div>
+
+            <motion.div className="code-panel video-code glass-card" animate={{ x: [0, 10, 0], y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 5.4, ease: "easeInOut" }}>
+              <div className="panel-title"><FaCode /> React Build</div>
+              <code>&lt;AhsanurWebSolution /&gt;</code>
+              <code>pricing: Rs. 7500+</code>
+              <code>animation: premium;</code>
+            </motion.div>
+
+            <div className="video-play-strip glass-card">
+              <div className="play-button"><FaPlay /></div>
+              <div>
+                <strong>AI generated website video preview</strong>
+                <div className="timeline"><motion.span animate={{ width: ["10%", "82%", "44%"] }} transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }} /></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="video-tabs" role="tablist" aria-label="Website information">
+            {videoTabs.map((tab) => (
+              <button
+                className={activeTab.key === tab.key ? "active" : ""}
+                key={tab.key}
+                type="button"
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab.icon}
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              className="video-info-card"
+              key={activeTab.key}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+            >
+              <div className="icon-box">{activeTab.icon}</div>
+              <div>
+                <h3 className="card-title">{activeTab.title}</h3>
+                <p className="card-text">{activeTab.text}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <motion.div className="launch-chip video-launch" animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3.4, ease: "easeInOut" }}>
+            <FaRocket /> Website Launch
+          </motion.div>
         </motion.div>
-      </motion.div>
-
-      <style>{`
-        @keyframes float {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0); }
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-
-        html, body {
-          margin: 0;
-          padding: 0;
-          overflow-x: hidden;
-          width: 100vw;
-        }
-
-        @media (max-width: 768px) {
-          .home-container {
-            flex-direction: column-reverse;
-            text-align: center;
-          }
-          .home-container img {
-            margin-top: 60px;
-          }
-        }
-      `}</style>
+      </div>
     </section>
   );
 };
