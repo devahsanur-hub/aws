@@ -5,6 +5,8 @@ import profile2 from "../assets/home2.png";
 import profile3 from "../assets/profile1.jpg";
 import profile4 from "../assets/home4.jpg";
 
+const images = [profile1, profile2, profile3, profile4];
+
 const containerVariants = {
   hidden: {},
   visible: {
@@ -27,7 +29,6 @@ const buttonHover = {
 };
 
 const Home = () => {
-  const images = [profile1, profile2, profile3, profile4];
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
