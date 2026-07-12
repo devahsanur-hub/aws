@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.ae63d93a.css",
-    "main.js": "/static/js/main.41574a1e.js",
+    "main.css": "/static/css/main.c02b2fb4.css",
+    "main.js": "/static/js/main.fa1510d1.js",
     "static/js/453.acca0757.chunk.js": "/static/js/453.acca0757.chunk.js",
-    "static/media/uiux.png": "/static/media/uiux.9c5291d46cc98c6f3ec1.png",
-    "static/media/Software Industry.jpg": "/static/media/Software Industry.38c60a1e20f6030f2ae3.jpg",
+    "static/media/service-brand-generated.png": "/static/media/service-brand-generated.0ba39f791667925d654a.png",
+    "static/media/service-business-generated.png": "/static/media/service-business-generated.16f6081a66dc5b3bebda.png",
+    "static/media/service-wordpress-generated.png": "/static/media/service-wordpress-generated.ae233e4be52689e27275.png",
+    "static/media/service-uiux-generated.png": "/static/media/service-uiux-generated.de7339b4069a65668392.png",
+    "static/media/service-seo-generated.png": "/static/media/service-seo-generated.17fe6e4df4bfdb5d5606.png",
+    "static/media/service-react-generated.png": "/static/media/service-react-generated.f5b58bf343093e7b8b76.png",
+    "static/media/software-product-kit.png": "/static/media/software-product-kit.d19559ad33d7b741a38b.png",
     "static/media/logo.png": "/static/media/logo.207aed15f85d867bed8e.png",
-    "static/media/_Untitled design (14).jpg": "/static/media/6718fbb85d1152665bfafec4_Untitled design (14).2e8c14fa595f55cdd826.jpg",
     "static/media/developer-original.png": "/static/media/developer-original.ca4f870e6fc54b6b8b40.png",
-    "static/media/seo.png": "/static/media/seo.43a236217ab8f6276d0e.png",
     "static/media/dash.jpg": "/static/media/dash.d2d7fa078006c3402e02.jpg",
-    "static/media/webdev.png": "/static/media/webdev.ba058ea313563d366ac0.png",
-    "static/media/wordpress.jpg": "/static/media/wordpress.b3da9a1cf1480ec5c867.jpg",
     "index.html": "/index.html",
-    "main.ae63d93a.css.map": "/static/css/main.ae63d93a.css.map",
-    "main.41574a1e.js.map": "/static/js/main.41574a1e.js.map",
+    "main.c02b2fb4.css.map": "/static/css/main.c02b2fb4.css.map",
+    "main.fa1510d1.js.map": "/static/js/main.fa1510d1.js.map",
     "453.acca0757.chunk.js.map": "/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae63d93a.css",
-    "static/js/main.41574a1e.js"
+    "static/css/main.c02b2fb4.css",
+    "static/js/main.fa1510d1.js"
   ]
 }
