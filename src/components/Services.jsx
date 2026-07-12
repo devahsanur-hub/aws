@@ -1,29 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCode, FaPaintBrush, FaSearch, FaShoppingCart, FaWordpress, FaLayerGroup } from "react-icons/fa";
-import webdevImg from "../assets/webdev.png";
-import uiuxImg from "../assets/uiux.png";
-import seoImg from "../assets/seo.png";
-import wordpressImg from "../assets/wordpress.jpg";
-import softwareImg from "../assets/Software Industry.jpg";
-import graphicImg from "../assets/6718fbb85d1152665bfafec4_Untitled design (14).jpg";
+import webdevImg from "../assets/service-react-generated.png";
+import uiuxImg from "../assets/service-uiux-generated.png";
+import seoImg from "../assets/service-seo-generated.png";
+import wordpressImg from "../assets/service-wordpress-generated.png";
+import softwareImg from "../assets/service-business-generated.png";
+import graphicImg from "../assets/service-brand-generated.png";
 
 const services = [
   {
-    title: "React Website",
-    text: "Portfolio, business website, landing page, admin dashboard and custom frontend with smooth animation.",
+    title: "React Website Design",
+    text: "Portfolio, business website, landing page and custom frontend for Beldanga and Murshidabad businesses.",
     image: webdevImg,
     icon: <FaCode />,
   },
   {
     title: "UI/UX Design",
-    text: "Modern layout, clean spacing, mobile-first sections, CTA flow and professional brand presentation.",
+    text: "Modern dark-theme layout, clean spacing, mobile-first sections, CTA flow and professional brand presentation.",
     image: uiuxImg,
     icon: <FaPaintBrush />,
   },
   {
-    title: "SEO Setup",
-    text: "Meta content, page structure, performance cleanup, Google-friendly content blocks and technical basics.",
+    title: "Local SEO Setup",
+    text: "Meta content, page structure, Google-friendly content and local SEO basics for Beldanga and Murshidabad search.",
     image: seoImg,
     icon: <FaSearch />,
   },
@@ -54,8 +54,8 @@ const Services = () => {
         <p className="section-kicker">Services</p>
         <h2 className="section-title">Websites, design and digital growth.</h2>
         <p className="section-lead">
-          Everything needed to launch a professional online presence: design,
-          development, performance, SEO basics, and support.
+          Website design, React development, WordPress and local SEO services
+          for Beldanga, Murshidabad and West Bengal businesses.
         </p>
 
         <div className="grid services-grid">
@@ -66,10 +66,10 @@ const Services = () => {
               initial={{ opacity: 0, y: 34 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.55, delay: index * 0.06 }}
-              whileHover={{ y: -8 }}
+              transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -12, rotate: index % 2 === 0 ? -0.6 : 0.6 }}
             >
-              <img src={service.image} alt={service.title} />
+              <img src={service.image} alt={`${service.title} by Ahsanur Rahaman in Murshidabad`} />
               <div className="icon-box">{service.icon}</div>
               <h3 className="card-title">{service.title}</h3>
               <p className="card-text">{service.text}</p>

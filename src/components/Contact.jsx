@@ -32,8 +32,8 @@ const Contact = () => {
         <p className="section-kicker">Contact</p>
         <h2 className="section-title">Tell me what website you need.</h2>
         <p className="section-lead">
-          Share your idea, budget, pages and deadline. I will help you choose the
-          right package and launch plan.
+          Contact Ahsanur Rahaman for website design, WordPress, React
+          development and SEO services in Beldanga, Murshidabad and nearby areas.
         </p>
 
         <div className="contact-grid">
@@ -46,7 +46,7 @@ const Contact = () => {
           >
             <p className="contact-line"><FaEnvelope /> <a href="mailto:ahsanurr292@gmail.com">ahsanurr292@gmail.com</a></p>
             <p className="contact-line"><FaPhoneAlt /> <a href="tel:+917866030833">+91 7866030833</a></p>
-            <p className="contact-line"><FaMapMarkerAlt /> Beldanga, West Bengal, India</p>
+            <p className="contact-line"><FaMapMarkerAlt /> Beldanga, Murshidabad, West Bengal, India</p>
             <div className="contact-actions">
               <a className="btn btn-primary" href="https://wa.me/917866030833" target="_blank" rel="noreferrer">
                 <FaWhatsapp /> Chat on WhatsApp
