@@ -1,4 +1,7 @@
 User-agent: *
-Disallow:
+Allow: /
 
-Sitemap: https://ahsanurwebsolution.com/sitemap.xml
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://ashupro.in/sitemap.xml
