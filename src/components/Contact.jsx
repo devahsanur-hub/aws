@@ -62,6 +62,14 @@ const Contact = () => {
                 </a>
               ))}
             </div>
+            <div className="contact-map">
+              <iframe
+                title="Ahsanur Web Solution location map"
+                src="https://www.google.com/maps?q=Beldanga,%20Murshidabad,%20West%20Bengal,%20India&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </motion.div>
 
           <motion.form

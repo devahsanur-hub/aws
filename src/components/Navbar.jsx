@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import logo from "../assets/ahsanur-web-solution-logo.png";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#services", label: "Services" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const Navbar = () => {
@@ -17,8 +17,8 @@ const Navbar = () => {
   return (
     <header className="nav">
       <div className="nav-inner">
-        <a className="brand" href="#home" onClick={() => setMenuOpen(false)}>
-          <img src={logo} alt="Ahsanur logo" />
+        <a className="brand" href="/" onClick={() => setMenuOpen(false)}>
+          <img src={logo} alt="Ahsanur Web Solution logo" />
           <span>Ahsanur Web Solution</span>
         </a>
 

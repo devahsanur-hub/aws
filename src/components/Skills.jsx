@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import dashboardImg from "../assets/dash.jpg";
+import dashboardImg from "../assets/skills-dashboard-generated.png";
 
 const skills = [
   { name: "React.js", level: 90 },
@@ -40,7 +40,12 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.65 }}
         >
-          <img src={dashboardImg} alt="Dashboard preview" style={{ width: "100%", borderRadius: 8, marginBottom: 24 }} />
+          <img
+            src={dashboardImg}
+            alt="Generated web developer skills dashboard for React, WordPress, SEO and UI/UX"
+            className="skills-dashboard-image"
+            loading="lazy"
+          />
           {skills.map((skill, index) => (
             <div className="skill-row" key={skill.name}>
               <div className="skill-meta">

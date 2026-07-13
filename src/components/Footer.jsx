@@ -25,7 +25,14 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <span>&copy; 2026 Ahsanur Web Solution. All rights reserved.</span>
-        <span>Built for fast, clean and conversion-ready websites.</span>
+        <span className="footer-links">
+          <a href="/about">About</a>
+          <a href="/ahsanur-rahaman">Ahsanur Rahaman</a>
+          <a href="/website-development-beldanga">Website Development in Beldanga</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/refund-policy">Refund Policy</a>
+          <a href="/terms-and-conditions">Terms and Conditions</a>
+        </span>
       </div>
     </footer>
   );
